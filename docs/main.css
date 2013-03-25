@@ -1,0 +1,76 @@
+.header {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: #eeeeee;
+}
+#sidebar-wrapper {
+  position: relative;
+}
+#sidebar {
+  position: absolute;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  #sidebar {
+    position: static;
+  }
+}
+section {
+  padding-top: 45px;
+}
+.syo-docs-example {
+  margin: 15px 0;
+  padding: 30px 0 0;
+  border: 1px solid #aaaaaa;
+  background: #fdfdfd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+.syo-docs-example:before {
+  position: relative;
+  top: -21px;
+  left: -1px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+  line-height: 15px;
+  color: #444444;
+  font-size: 11px;
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  background: #eeeeee;
+  content: "Exemplo";
+  -webkit-border-radius: 4px 0 4px 0;
+  -moz-border-radius: 4px 0 4px 0;
+  border-radius: 4px 0 4px 0;
+}
+.syo-docs-example .syo-docs-example-inner {
+  padding: 0 15px 15px;
+}
+.syo-docs-example pre.prettyprint {
+  margin: 0;
+  -webkit-border-bottom-left-radius: 4px;
+  -moz-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -moz-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.grid-example .row {
+  margin-bottom: 15px;
+}
+.grid-example [class*="span"] {
+  padding: 5px;
+  font-size: .9;
+  background: #eeeeee;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.grid-example [class*="span"]:hover {
+  background: #b2b2b2;
+}
