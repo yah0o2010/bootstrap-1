@@ -2188,32 +2188,6 @@ ol.syo-nav-list > li {
   border-bottom: 1px solid #e1e1e1;
   background: #ffffff;
 }
-ul.syo-nav-list > li:first-child,
-ol.syo-nav-list > li:first-child,
-ul.syo-nav-list > li:first-child > a,
-ol.syo-nav-list > li:first-child > a {
-  -webkit-border-top-left-radius: 4px;
-  -moz-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -webkit-border-top-right-radius: 4px;
-  -moz-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-}
-ul.syo-nav-list > li:last-child,
-ol.syo-nav-list > li:last-child {
-  border-bottom: 0;
-}
-ul.syo-nav-list > li:last-child,
-ol.syo-nav-list > li:last-child,
-ul.syo-nav-list > li:last-child > a,
-ol.syo-nav-list > li:last-child > a {
-  -webkit-border-bottom-left-radius: 4px;
-  -moz-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  -moz-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
 ul.syo-nav-list > li > a,
 ol.syo-nav-list > li > a {
   display: block;
@@ -2243,6 +2217,32 @@ ol.syo-nav-list > li.syo-nav-header {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0);
   text-shadow: 0 1px 0 #fff;
 }
+ul.syo-nav-list > li:first-child,
+ol.syo-nav-list > li:first-child,
+ul.syo-nav-list > li:first-child > a,
+ol.syo-nav-list > li:first-child > a {
+  -webkit-border-top-left-radius: 4px;
+  -moz-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -webkit-border-top-right-radius: 4px;
+  -moz-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+ul.syo-nav-list > li:last-child,
+ol.syo-nav-list > li:last-child {
+  border-bottom: 0;
+}
+ul.syo-nav-list > li:last-child,
+ol.syo-nav-list > li:last-child,
+ul.syo-nav-list > li:last-child > a,
+ol.syo-nav-list > li:last-child > a {
+  -webkit-border-bottom-left-radius: 4px;
+  -moz-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -moz-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
 .syo-navbar {
   width: 100%;
   height: 40px;
@@ -2261,18 +2261,6 @@ ol.syo-nav-list > li.syo-nav-header {
   -moz-box-shadow: 0 0 5px 0px rgba(170, 170, 170, 0.6);
   box-shadow: 0 0 5px 0px rgba(170, 170, 170, 0.6);
   text-shadow: 0 1px 0 #fff;
-}
-.syo-navbar.syo-navbar-fixed-top,
-.syo-navbar.syo-navbar-fixed-bottom {
-  position: fixed;
-  left: 0;
-  z-index: 1000;
-}
-.syo-navbar.syo-navbar-fixed-top {
-  top: 0;
-}
-.syo-navbar.syo-navbar-fixed-bottom {
-  bottom: 0;
 }
 .syo-navbar a {
   color: #666666;
@@ -2335,35 +2323,47 @@ ol.syo-nav-list > li.syo-nav-header {
   display: inline-block;
   padding: 10px 13.333333333333334px;
 }
+.syo-navbar.syo-navbar-fixed-top,
+.syo-navbar.syo-navbar-fixed-bottom {
+  position: fixed;
+  left: 0;
+  z-index: 1000;
+}
+.syo-navbar.syo-navbar-fixed-top {
+  top: 0;
+}
+.syo-navbar.syo-navbar-fixed-bottom {
+  bottom: 0;
+}
 body.syo-body-navbar {
   padding-top: 40px;
 }
-.syo-pagination ul {
+.syo-pagination > ul {
   list-style: none;
 }
-.syo-pagination ul:before,
-.syo-pagination ul:after {
+.syo-pagination > ul:before,
+.syo-pagination > ul:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.syo-pagination ul:after {
+.syo-pagination > ul:after {
   clear: both;
 }
-.syo-pagination ul:before,
-.syo-pagination ul:after {
+.syo-pagination > ul:before,
+.syo-pagination > ul:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.syo-pagination ul:after {
+.syo-pagination > ul:after {
   clear: both;
 }
-.syo-pagination ul li {
+.syo-pagination > ul li {
   float: left;
   margin-left: 3px;
 }
-.syo-pagination ul li a {
+.syo-pagination > ul li a {
   padding: 2px 4px;
   border: 1px solid #aaaaaa;
   color: #000000;
@@ -2376,24 +2376,30 @@ body.syo-body-navbar {
   -o-transition: all 0.15s linear;
   transition: all 0.15s linear;
 }
-.syo-pagination ul li a:hover,
-.syo-pagination ul li a:active {
+.syo-pagination > ul li a:hover,
+.syo-pagination > ul li a:active {
   color: #000000;
   text-decoration: none;
   background: #f8f8f8;
 }
-.syo-pagination ul li a:active {
+.syo-pagination > ul li a:active,
+.syo-pagination > ul li a:focus {
   border-color: #008000;
 }
-.syo-pagination ul li.syo-active a {
+.syo-pagination > ul li:first-child {
+  margin-left: 0;
+}
+.syo-pagination > ul li.syo-active > a {
   border-color: #008000;
   background-color: #ffffff;
 }
-.syo-pagination ul li.syo-disabled a {
+.syo-pagination > ul li.syo-disabled > a {
+  border-color: #aaaaaa;
   color: #aaaaaa;
+  background-color: #eeeeee;
 }
-.syo-pagination ul li:first-child {
-  margin-left: 0;
+.syo-pagination > ul li.syo-disabled > a:focus {
+  outline: none;
 }
 .syo-block {
   border: 1px solid #cccccc;
