@@ -1,6 +1,7 @@
 /*!
- * SyoFramework v0.0.0 - 2013-03-25
- * http://syonet.github.com/syo-framework/
+ * Syonet Bootstrap v0.0.0 - 2013-03-27
+ * O conjunto de ferramentas front-end da Syonet
+ * http://syonet.github.com/bootstrap/
  *
  * Created by Syonet CRM <syonet@syonet.com>
  * http://www.syonet.com
@@ -800,8 +801,8 @@ body .ui-tooltip {
 /* Component containers
 ----------------------------------*/
 .ui-widget {
-  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
 }
 .ui-widget input,
 .ui-widget select,
@@ -819,14 +820,14 @@ body .ui-tooltip {
 }
 .ui-widget-header {
   border: 1px solid #aaaaaa;
-  background-color: #e2e2e2;
-  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%), -moz-linear-gradient(top, #e3e3e3, #e0e0e0);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.3)), color-stop(50%, rgba(255, 255, 255, 0.3)), color-stop(51%, rgba(255, 255, 255, 0))), -webkit-gradient(linear, 0 0, 0 100%, from(#e3e3e3), to(#e0e0e0));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%), -webkit-linear-gradient(top, #e3e3e3, #e0e0e0);
-  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%), -o-linear-gradient(top, #e3e3e3, #e0e0e0);
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%), linear-gradient(to bottom, #e3e3e3, #e0e0e0);
-  background-repeat: repeat-x, repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe3e3e3', endColorstr='#ffe0e0e0', GradientType=0);
+  background-color: #f8f8f8;
+  background-image: -moz-linear-gradient(top, #ffffff, #eeeeee);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#eeeeee));
+  background-image: -webkit-linear-gradient(top, #ffffff, #eeeeee);
+  background-image: -o-linear-gradient(top, #ffffff, #eeeeee);
+  background-image: linear-gradient(to bottom, #ffffff, #eeeeee);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0);
   color: #222222;
   font-weight: bold;
 }
@@ -839,16 +840,20 @@ body .ui-tooltip {
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
   border: 1px solid #d3d3d3;
-  background-color: #e2e2e2;
-  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%), -moz-linear-gradient(top, #e3e3e3, #e0e0e0);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.3)), color-stop(50%, rgba(255, 255, 255, 0.3)), color-stop(51%, rgba(255, 255, 255, 0))), -webkit-gradient(linear, 0 0, 0 100%, from(#e3e3e3), to(#e0e0e0));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%), -webkit-linear-gradient(top, #e3e3e3, #e0e0e0);
-  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%), -o-linear-gradient(top, #e3e3e3, #e0e0e0);
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%), linear-gradient(to bottom, #e3e3e3, #e0e0e0);
-  background-repeat: repeat-x, repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe3e3e3', endColorstr='#ffe0e0e0', GradientType=0);
+  background-color: #f8f8f8;
+  background-image: -moz-linear-gradient(top, #ffffff, #eeeeee);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#eeeeee));
+  background-image: -webkit-linear-gradient(top, #ffffff, #eeeeee);
+  background-image: -o-linear-gradient(top, #ffffff, #eeeeee);
+  background-image: linear-gradient(to bottom, #ffffff, #eeeeee);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0);
   font-weight: normal;
   color: #555555;
+  -webkit-transition: background 0.15s linear, border 0.15s linear;
+  -moz-transition: background 0.15s linear, border 0.15s linear;
+  -o-transition: background 0.15s linear, border 0.15s linear;
+  transition: background 0.15s linear, border 0.15s linear;
 }
 .ui-state-default a,
 .ui-state-default a:link,
@@ -863,14 +868,14 @@ body .ui-tooltip {
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
   border: 1px solid #999999;
-  background-color: #e2e2e2;
-  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%), -moz-linear-gradient(top, #e3e3e3, #e0e0e0);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.3)), color-stop(50%, rgba(255, 255, 255, 0.3)), color-stop(51%, rgba(255, 255, 255, 0))), -webkit-gradient(linear, 0 0, 0 100%, from(#e3e3e3), to(#e0e0e0));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%), -webkit-linear-gradient(top, #e3e3e3, #e0e0e0);
-  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%), -o-linear-gradient(top, #e3e3e3, #e0e0e0);
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%), linear-gradient(to bottom, #e3e3e3, #e0e0e0);
-  background-repeat: repeat-x, repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe3e3e3', endColorstr='#ffe0e0e0', GradientType=0);
+  background-color: #f8f8f8;
+  background-image: -moz-linear-gradient(top, #ffffff, #eeeeee);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#eeeeee));
+  background-image: -webkit-linear-gradient(top, #ffffff, #eeeeee);
+  background-image: -o-linear-gradient(top, #ffffff, #eeeeee);
+  background-image: linear-gradient(to bottom, #ffffff, #eeeeee);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0);
   font-weight: normal;
   color: #1a1a1a;
 }
@@ -934,15 +939,15 @@ body .ui-tooltip {
 .ui-priority-secondary,
 .ui-widget-content .ui-priority-secondary,
 .ui-widget-header .ui-priority-secondary {
-  opacity: .7;
-  filter: alpha(opacity=70);
+  opacity: 0.7;
+  filter: Alpha(Opacity=70);
   font-weight: normal;
 }
 .ui-state-disabled,
 .ui-widget-content .ui-state-disabled,
 .ui-widget-header .ui-state-disabled {
-  opacity: .35;
-  filter: alpha(opacity=35);
+  opacity: 0.35;
+  filter: Alpha(Opacity=35);
   background-image: none;
 }
 .ui-state-disabled .ui-icon {
@@ -1544,24 +1549,23 @@ body .ui-tooltip {
 /* Overlays */
 .ui-widget-overlay {
   background: rgba(170, 170, 170, 0.4);
-  opacity: .3;
-  filter: alpha(opacity=30);
+  opacity: 0.3;
+  filter: Alpha(Opacity=30);
 }
 .ui-widget-shadow {
   margin: -8px 0 0 -8px;
   padding: 8px;
   background: rgba(170, 170, 170, 0.4);
-  opacity: .3;
-  filter: alpha(opacity=30);
+  opacity: 0.3;
+  filter: Alpha(Opacity=30);
   border-radius: 8px;
 }
 /* Custom
 ----------------------------------*/
 .ui-button {
   display: inline-block;
-  min-height: 2em;
-  padding: 3px 4px;
-  line-height: normal;
+  min-height: 28px;
+  padding: 5px 5px;
   vertical-align: middle;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1575,6 +1579,10 @@ body .ui-tooltip {
 a.ui-button:hover,
 a.ui-button:active {
   color: #1a1a1a;
+}
+.ui-button.ui-state-active,
+.ui-button.ui-state-focus {
+  border-color: #008000;
 }
 .ui-button.ui-corner-all,
 .ui-button.ui-corner-top,
@@ -1619,7 +1627,7 @@ a.ui-button:active {
   position: absolute !important;
 }
 .ui-spinner {
-  height: 22px;
+  height: 28px;
   vertical-align: top;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1634,10 +1642,64 @@ a.ui-button:active {
   min-height: auto;
 }
 .ui-spinner .ui-spinner-input {
-  height: 20px;
+  height: 26px;
   margin: 0;
   border: 0;
 }
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@-moz-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@-ms-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@-o-keyframes progress-bar-stripes {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 0;
+  }
+}
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
 .ui-progressbar .ui-progressbar-value {
-  background-image: url("images/ui-progressbar-anim.gif");
+  background-color: #d0d0d0;
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(170, 170, 170, 0.1)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(170, 170, 170, 0.1)), color-stop(0.75, rgba(170, 170, 170, 0.1)), color-stop(0.75, transparent), to(transparent)), -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#eeeeee));
+  background-image: -webkit-linear-gradient(45deg, rgba(170, 170, 170, 0.1) 25%, transparent 25%, transparent 50%, rgba(170, 170, 170, 0.1) 50%, rgba(170, 170, 170, 0.1) 75%, transparent 75%, transparent), -webkit-linear-gradient(top, #ffffff, #eeeeee);
+  background-image: -moz-linear-gradient(45deg, rgba(170, 170, 170, 0.1) 25%, transparent 25%, transparent 50%, rgba(170, 170, 170, 0.1) 50%, rgba(170, 170, 170, 0.1) 75%, transparent 75%, transparent), -moz-linear-gradient(top, #ffffff, #eeeeee);
+  background-image: -o-linear-gradient(45deg, rgba(170, 170, 170, 0.1) 25%, transparent 25%, transparent 50%, rgba(170, 170, 170, 0.1) 50%, rgba(170, 170, 170, 0.1) 75%, transparent 75%, transparent), -o-linear-gradient(top, #ffffff, #eeeeee);
+  background-image: linear-gradient(45deg, rgba(170, 170, 170, 0.1) 25%, transparent 25%, transparent 50%, rgba(170, 170, 170, 0.1) 50%, rgba(170, 170, 170, 0.1) 75%, transparent 75%, transparent), linear-gradient(to bottom, #ffffff, #eeeeee);
+  -webkit-background-size: 40px 40px;
+  -moz-background-size: 40px 40px;
+  -o-background-size: 40px 40px;
+  background-size: 40px 40px;
+  -webkit-animation: progress-bar-stripes 1.5s linear infinite;
+  -moz-animation: progress-bar-stripes 1.5s linear infinite;
+  -ms-animation: progress-bar-stripes 1.5s linear infinite;
+  -o-animation: progress-bar-stripes 1.5s linear infinite;
+  animation: progress-bar-stripes 1.5s linear infinite;
 }

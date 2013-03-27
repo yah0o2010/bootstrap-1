@@ -1,6 +1,6 @@
 .header {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   background: #eeeeee;
 }
 #sidebar-wrapper {
@@ -16,11 +16,11 @@
   }
 }
 section {
-  padding-top: 45px;
+  padding-top: 40px;
 }
 .syo-docs-example {
-  margin: 15px 0;
-  padding: 30px 0 0;
+  margin: 20px 0;
+  padding: 40px 0 0;
   border: 1px solid #aaaaaa;
   background: #fdfdfd;
   -webkit-border-radius: 4px;
@@ -32,14 +32,14 @@ section {
 }
 .syo-docs-example:before {
   position: relative;
-  top: -21px;
+  top: -34px;
   left: -1px;
   padding: 10px;
   border: 1px solid #aaaaaa;
   line-height: 15px;
   color: #444444;
   font-size: 11px;
-  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: bold;
   background: #eeeeee;
@@ -49,7 +49,7 @@ section {
   border-radius: 4px 0 4px 0;
 }
 .syo-docs-example .syo-docs-example-inner {
-  padding: 0 15px 15px;
+  padding: 0 20px 20px;
 }
 .syo-docs-example pre.prettyprint {
   margin: 0;
@@ -61,7 +61,7 @@ section {
   border-bottom-right-radius: 4px;
 }
 .grid-example .row {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 .grid-example [class*="span"] {
   padding: 5px;
