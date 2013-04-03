@@ -1,5 +1,5 @@
 /*!
- * Syonet Bootstrap v0.0.0 - 2013-03-27
+ * Syonet Bootstrap v0.0.0 - 2013-04-03
  * O conjunto de ferramentas front-end da Syonet
  * http://syonet.github.com/bootstrap/
  *
@@ -830,6 +830,29 @@ textarea.input-block-level {
   display: block;
   width: 100%;
 }
+input:not([type])[class*="span"],
+input[type="text"][class*="span"],
+input[type="password"][class*="span"],
+input[type="date"][class*="span"],
+input[type="time"][class*="span"],
+input[type="datetime"][class*="span"],
+input[type="datetime-local"][class*="span"],
+input[type="month"][class*="span"],
+input[type="week"][class*="span"],
+input[type="email"][class*="span"],
+input[type="search"][class*="span"],
+input[type="tel"][class*="span"],
+input[type="number"][class*="span"],
+input[type="range"][class*="span"],
+input[type="color"][class*="span"],
+input[type="submit"].syo-button[class*="span"],
+input[type="reset"].syo-button[class*="span"],
+input[type="button"].syo-button[class*="span"],
+button.syo-button[class*="span"],
+select[class*="span"],
+textarea[class*="span"] {
+  float: none;
+}
 input:not([type])[disabled],
 input[type="text"][disabled],
 input[type="password"][disabled],
@@ -1022,7 +1045,7 @@ button + label {
 .syo-field > input[type="radio"],
 .syo-field > input[type="checkbox"] {
   position: relative;
-  top: 0.45em;
+  top: 0.5em;
 }
 .syo-field .syo-field-help {
   display: block;
@@ -1127,6 +1150,9 @@ table th[class*="span"],
 table col[class*="span"] {
   float: none;
 }
+table th small {
+  font-weight: normal;
+}
 .syo-data-table,
 .syo-datagrid table {
   width: 100%;
@@ -1134,6 +1160,7 @@ table col[class*="span"] {
   border-collapse: separate;
   border: 1px solid #cccccc;
   border-left: 0;
+  table-layout: fixed;
 }
 .syo-data-table td,
 .syo-datagrid table td,
@@ -1170,6 +1197,18 @@ table col[class*="span"] {
 .syo-data-table tbody:first-child tr:first-child td,
 .syo-datagrid table tbody:first-child tr:first-child td {
   border-top: 0;
+}
+.syo-data-table td.text-center,
+.syo-datagrid table td.text-center {
+  text-align: center;
+}
+.syo-data-table td.text-right,
+.syo-datagrid table td.text-right {
+  text-align: right;
+}
+.syo-data-table td.text-justify,
+.syo-datagrid table td.text-justify {
+  text-align: justify;
 }
 .syo-data-table {
   -webkit-border-radius: 4px;
@@ -1348,7 +1387,17 @@ ol.unstyled {
   font-weight: normal;
   font-style: normal;
   text-decoration: inherit;
+  vertical-align: middle;
   -webkit-font-smoothing: antialiased;
+}
+.icon-upload-alt:before {
+  content: "\e110";
+}
+.icon-hourglass:before {
+  content: "\e10f";
+}
+.icon-vkontakte:before {
+  content: "\e10e";
 }
 .icon-briefcase:before {
   content: "\e10d";
@@ -2160,9 +2209,6 @@ ol.unstyled {
 .icon-zoom-out:before {
   content: "\e000";
 }
-.icon-vkontakte:before {
-  content: "\e10e";
-}
 ol.syo-nav,
 ul.syo-nav {
   margin-left: 0;
@@ -2257,9 +2303,9 @@ ol.syo-nav-list > li:last-child > a {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0);
   font-size: 13px;
-  -webkit-box-shadow: 0 0 5px 0px rgba(170, 170, 170, 0.6);
-  -moz-box-shadow: 0 0 5px 0px rgba(170, 170, 170, 0.6);
-  box-shadow: 0 0 5px 0px rgba(170, 170, 170, 0.6);
+  -webkit-box-shadow: 0 0 5px 0px rgba(170, 170, 170, 0.3);
+  -moz-box-shadow: 0 0 5px 0px rgba(170, 170, 170, 0.3);
+  box-shadow: 0 0 5px 0px rgba(170, 170, 170, 0.3);
   text-shadow: 0 1px 0 #fff;
 }
 .syo-navbar a {
@@ -2274,6 +2320,8 @@ ol.syo-nav-list > li:last-child > a {
 .syo-navbar .syo-navbar-title {
   display: block;
   float: left;
+  margin-top: 0;
+  margin-bottom: 0;
   padding: 9.5px 14px;
   line-height: 1em;
   color: #444444;
@@ -2304,6 +2352,8 @@ ol.syo-nav-list > li:last-child > a {
 }
 .syo-navbar .syo-nav li > a {
   display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
   padding: 10px 13.333333333333334px;
 }
 .syo-navbar .syo-nav li > a:hover {
@@ -2321,6 +2371,8 @@ ol.syo-nav-list > li:last-child > a {
 }
 .syo-navbar .syo-navbar-content {
   display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
   padding: 10px 13.333333333333334px;
 }
 .syo-navbar.syo-navbar-fixed-top,
@@ -2400,6 +2452,12 @@ body.syo-body-navbar {
 }
 .syo-pagination > ul li.syo-disabled > a:focus {
   outline: none;
+}
+.syo-pagination-inline > ul {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .syo-block {
   border: 1px solid #cccccc;
@@ -2821,24 +2879,19 @@ body.syo-body-navbar {
     margin-left: 8.56353591160221%;
   }
 }
-@media (max-width: 767px) {
-  [class*="span"] {
-    width: 100%;
-    margin-left: 0;
-    margin-bottom: 20px;
-    float: none;
+@media (min-width: 980px) {
+  .visible-tablet {
+    display: none !important;
   }
-  .syo-field > .syo-field-controls {
-    margin-left: 0;
+  .visible-desktop {
+    display: inherit !important;
   }
-  table td[class*="span"],
-  table th[class*="span"],
-  table col[class*="span"] {
-    width: auto;
+}
+@media (max-width: 979px) {
+  .visible-desktop {
+    display: none !important ;
   }
-  .syo-navbar {
-    position: static;
-    top: auto;
-    bottom: auto;
+  .visible-tablet {
+    display: inherit !important;
   }
 }

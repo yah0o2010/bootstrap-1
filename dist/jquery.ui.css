@@ -1,5 +1,5 @@
 /*!
- * Syonet Bootstrap v0.0.0 - 2013-03-27
+ * Syonet Bootstrap v0.0.0 - 2013-04-03
  * O conjunto de ferramentas front-end da Syonet
  * http://syonet.github.com/bootstrap/
  *
@@ -1622,6 +1622,9 @@ a.ui-button:active {
 .ui-button-text-icon-primary .ui-button-text,
 .ui-button-text-icons .ui-button-text {
   padding: 0 0 0 1.8em;
+}
+.ui-buttonset {
+  vertical-align: top;
 }
 .ui-buttonset .ui-helper-hidden-accessible {
   position: absolute !important;

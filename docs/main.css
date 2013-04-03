@@ -10,11 +10,6 @@
   position: absolute;
   width: 100%;
 }
-@media (max-width: 767px) {
-  #sidebar {
-    position: static;
-  }
-}
 section {
   padding-top: 40px;
 }
@@ -73,4 +68,81 @@ section {
 }
 .grid-example [class*="span"]:hover {
   background: #b2b2b2;
+}
+.icons {
+  margin: 0 0 20px;
+  list-style: none;
+}
+.icons:before,
+.icons:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.icons:after {
+  clear: both;
+}
+.icons li {
+  float: left;
+  width: 24%;
+  margin: 0 1% 5px 0;
+}
+.responsive-test .visible,
+.responsive-table .visible,
+.responsive-test .hidden,
+.responsive-table .hidden {
+  text-align: center;
+}
+.responsive-test .hidden,
+.responsive-table .hidden {
+  color: #aaaaaa;
+}
+.responsive-test .visible,
+.responsive-table .visible {
+  background: #dff0d8;
+  color: #008000;
+}
+.responsive-test .visible:before,
+.responsive-table .visible:before {
+  position: absolute;
+  content: "✔";
+  margin-left: -14px;
+}
+ul.responsive-test {
+  list-style: none;
+}
+ul.responsive-test li {
+  position: relative;
+  display: inline-block;
+  width: 24%;
+  margin-right: 1%;
+  padding: 10px 0;
+  border: 1px solid #aaaaaa;
+  color: #aaaaaa;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+ul.responsive-test li > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+@media (max-width: 767px) {
+  #sidebar {
+    position: static;
+  }
+  .icons li {
+    width: 49%;
+  }
+  .responsive-test .visible:before,
+  .responsive-table .visible:before {
+    content: "";
+  }
 }
