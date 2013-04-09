@@ -1,7 +1,52 @@
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@-moz-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@-ms-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@-o-keyframes progress-bar-stripes {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 0;
+  }
+}
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
 .header {
   padding-top: 40px;
   padding-bottom: 40px;
   background: #eeeeee;
+  text-align: center;
+}
+.header h1 {
+  font-size: 56px;
+  line-height: 80px;
 }
 #sidebar-wrapper {
   position: relative;
@@ -134,12 +179,12 @@ ul.responsive-test li > span {
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-@media (max-width: 767px) {
+@media (max-width: 979px) and (orientation: portrait) {
   #sidebar {
     position: static;
   }
   .icons li {
-    width: 49%;
+    width: 32.3%;
   }
   .responsive-test .visible:before,
   .responsive-table .visible:before {

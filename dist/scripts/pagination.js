@@ -1,8 +1,17 @@
+/*!
+ * Syonet Bootstrap v0.0.0 - 2013-04-09
+ * O conjunto de ferramentas front-end da Syonet
+ * http://syonet.github.com/bootstrap/
+ *
+ * Created by Syonet CRM <syonet@syonet.com>
+ * http://www.syonet.com
+ */
+
 (function( $ ) {
 	"use strict";
 
 	$.widget( "ui.syoPagination", {
-		version: "@VERSION",
+		version: "0.0.0",
 		options: {
 			active: 0,
 			size: 1,

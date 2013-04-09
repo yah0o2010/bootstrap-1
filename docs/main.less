@@ -9,6 +9,12 @@
 	padding-top: @base-line-height * 2;
 	padding-bottom: @base-line-height * 2;
 	background: @gray-lighter;
+  text-align: center;
+
+  h1 {
+    font-size: @base-font-size * 4;
+    line-height: @base-line-height * 4;
+  }
 }
 
 #sidebar-wrapper {
@@ -144,16 +150,15 @@ ul.responsive-test {
 // Responsividade
 // -------------------------
 
-// Celulares
-@media (max-width: 767px) {
-  // Num celular, a navegação "lateral" não precisa necessariamente ser lateral.
+@media (max-width: 979px) and (orientation: portrait) {
+  // Num tablet em posição retrato, a navegação "lateral" não precisa necessariamente ser lateral.
   #sidebar {
     position: static;
   }
 
   // Aumenta o tamanho da apresentação de cada icone num celular, pra não ficar tão horrível
   .icons li {
-    width: 49%;
+    width: 32.3%;
   }
 
   // Oculta o check de "efeito ativo" da seção "design responsivo"

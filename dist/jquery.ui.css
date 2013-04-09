@@ -1,5 +1,5 @@
 /*!
- * Syonet Bootstrap v0.0.0 - 2013-04-03
+ * Syonet Bootstrap v0.0.0 - 2013-04-09
  * O conjunto de ferramentas front-end da Syonet
  * http://syonet.github.com/bootstrap/
  *
@@ -798,6 +798,46 @@ body .ui-tooltip {
   border-width: 2px;
 }
 
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@-moz-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@-ms-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@-o-keyframes progress-bar-stripes {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 0;
+  }
+}
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
 /* Component containers
 ----------------------------------*/
 .ui-widget {
@@ -839,7 +879,7 @@ body .ui-tooltip {
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-  border: 1px solid #d3d3d3;
+  border: 1px solid #aaaaaa;
   background-color: #f8f8f8;
   background-image: -moz-linear-gradient(top, #ffffff, #eeeeee);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#eeeeee));
@@ -1562,72 +1602,85 @@ body .ui-tooltip {
 }
 /* Custom
 ----------------------------------*/
-.ui-button {
+.ui-button,
+.ui-dialog .ui-dialog-titlebar-close {
   display: inline-block;
-  min-height: 28px;
-  padding: 5px 5px;
+  border-color: rgba(170, 170, 170, 0.35);
+  border-bottom-color: #c3c3c3;
   vertical-align: middle;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: all 0.15s linear;
-  -moz-transition: all 0.15s linear;
-  -o-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: background 0.15s linear;
+  -moz-transition: background 0.15s linear;
+  -o-transition: background 0.15s linear;
+  transition: background 0.15s linear;
 }
 a.ui-button:hover,
-a.ui-button:active {
+a.ui-dialog .ui-dialog-titlebar-close:hover,
+a.ui-button:active,
+a.ui-dialog .ui-dialog-titlebar-close:active {
   color: #1a1a1a;
 }
 .ui-button.ui-state-active,
+.ui-dialog .ui-dialog-titlebar-close.ui-state-active,
+.ui-button.ui-state-hover,
+.ui-dialog .ui-dialog-titlebar-close.ui-state-hover {
+  background: #eee;
+}
+.ui-button {
+  padding: 3px 12px;
+}
+.ui-button .ui-button-text {
+  line-height: 20px;
+}
 .ui-button.ui-state-focus {
-  border-color: #008000;
+  outline: dotted thin #333;
+  outline-offset: 2px;
 }
-.ui-button.ui-corner-all,
-.ui-button.ui-corner-top,
-.ui-button.ui-corner-left,
-.ui-button.ui-corner-tl {
-  -webkit-border-top-left-radius: 2px;
-  -moz-border-top-left-radius: 2px;
-  border-top-left-radius: 2px;
+.ui-button.ui-state-active {
+  z-index: 3;
+  outline: 0;
+  border-color: rgba(170, 170, 170, 0.8);
+  border-bottom-color: #b7b7b7;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset;
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset;
 }
-.ui-button.ui-corner-all,
-.ui-button.ui-corner-top,
-.ui-button.ui-corner-right,
-.ui-button.ui-corner-tr {
-  -webkit-border-top-right-radius: 2px;
-  -moz-border-top-right-radius: 2px;
-  border-top-right-radius: 2px;
-}
-.ui-button.ui-corner-all,
-.ui-button.ui-corner-bottom,
-.ui-button.ui-corner-right,
-.ui-button.ui-corner-br {
-  -webkit-border-bottom-right-radius: 2px;
-  -moz-border-bottom-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
-.ui-button.ui-corner-all,
-.ui-button.ui-corner-bottom,
-.ui-button.ui-corner-left,
-.ui-button.ui-corner-bl {
-  -webkit-border-bottom-left-radius: 2px;
-  -moz-border-bottom-left-radius: 2px;
-  border-bottom-left-radius: 2px;
+input.ui-button {
+  height: 28px;
 }
 .ui-button-text-only .ui-button-text {
   padding: 0;
 }
 .ui-button-text-icon-primary .ui-button-text,
 .ui-button-text-icons .ui-button-text {
-  padding: 0 0 0 1.8em;
+  padding: 0 0 0 1.4em;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+  border: 1px solid #aaaaaa;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.ui-dialog .ui-dialog-titlebar-close .ui-icon {
+  background-image: url("images/ui-icons_888888_256x240.png");
+}
+.ui-dialog .ui-dialog-titlebar-close.ui-state-focus {
+  outline: 0;
+}
+.ui-dialog .ui-dialog-titlebar-close.ui-state-hover .ui-icon {
+  background-image: url("images/ui-icons_454545_256x240.png");
 }
 .ui-buttonset {
   vertical-align: top;
 }
 .ui-buttonset .ui-helper-hidden-accessible {
   position: absolute !important;
+}
+.ui-buttonset .ui-button.ui-state-focus {
+  z-index: 5;
 }
 .ui-spinner {
   height: 28px;
@@ -1649,53 +1702,20 @@ a.ui-button:active {
   margin: 0;
   border: 0;
 }
-@-webkit-keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0;
-  }
-  to {
-    background-position: 0 0;
-  }
+.ui-spinner a.ui-spinner-button {
+  padding: 0;
+  border-bottom: 1px solid #aaaaaa;
 }
-@-moz-keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0;
-  }
-  to {
-    background-position: 0 0;
-  }
-}
-@-ms-keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0;
-  }
-  to {
-    background-position: 0 0;
-  }
-}
-@-o-keyframes progress-bar-stripes {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 40px 0;
-  }
-}
-@keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0;
-  }
-  to {
-    background-position: 0 0;
-  }
+.ui-spinner a.ui-spinner-button:last-child {
+  border-bottom: 0;
 }
 .ui-progressbar .ui-progressbar-value {
   background-color: #d0d0d0;
-  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(170, 170, 170, 0.1)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(170, 170, 170, 0.1)), color-stop(0.75, rgba(170, 170, 170, 0.1)), color-stop(0.75, transparent), to(transparent)), -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#eeeeee));
-  background-image: -webkit-linear-gradient(45deg, rgba(170, 170, 170, 0.1) 25%, transparent 25%, transparent 50%, rgba(170, 170, 170, 0.1) 50%, rgba(170, 170, 170, 0.1) 75%, transparent 75%, transparent), -webkit-linear-gradient(top, #ffffff, #eeeeee);
-  background-image: -moz-linear-gradient(45deg, rgba(170, 170, 170, 0.1) 25%, transparent 25%, transparent 50%, rgba(170, 170, 170, 0.1) 50%, rgba(170, 170, 170, 0.1) 75%, transparent 75%, transparent), -moz-linear-gradient(top, #ffffff, #eeeeee);
-  background-image: -o-linear-gradient(45deg, rgba(170, 170, 170, 0.1) 25%, transparent 25%, transparent 50%, rgba(170, 170, 170, 0.1) 50%, rgba(170, 170, 170, 0.1) 75%, transparent 75%, transparent), -o-linear-gradient(top, #ffffff, #eeeeee);
-  background-image: linear-gradient(45deg, rgba(170, 170, 170, 0.1) 25%, transparent 25%, transparent 50%, rgba(170, 170, 170, 0.1) 50%, rgba(170, 170, 170, 0.1) 75%, transparent 75%, transparent), linear-gradient(to bottom, #ffffff, #eeeeee);
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(170, 170, 170, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(170, 170, 170, 0.15)), color-stop(0.75, rgba(170, 170, 170, 0.15)), color-stop(0.75, transparent), to(transparent)), -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#eeeeee));
+  background-image: -webkit-linear-gradient(45deg, rgba(170, 170, 170, 0.15) 25%, transparent 25%, transparent 50%, rgba(170, 170, 170, 0.15) 50%, rgba(170, 170, 170, 0.15) 75%, transparent 75%, transparent), -webkit-linear-gradient(top, #fafafa, #e9e9e9);
+  background-image: -moz-linear-gradient(45deg, rgba(170, 170, 170, 0.15) 25%, transparent 25%, transparent 50%, rgba(170, 170, 170, 0.15) 50%, rgba(170, 170, 170, 0.15) 75%, transparent 75%, transparent), -moz-linear-gradient(top, #fafafa, #e9e9e9);
+  background-image: -o-linear-gradient(45deg, rgba(170, 170, 170, 0.15) 25%, transparent 25%, transparent 50%, rgba(170, 170, 170, 0.15) 50%, rgba(170, 170, 170, 0.15) 75%, transparent 75%, transparent), -o-linear-gradient(top, #fafafa, #e9e9e9);
+  background-image: linear-gradient(45deg, rgba(170, 170, 170, 0.15) 25%, transparent 25%, transparent 50%, rgba(170, 170, 170, 0.15) 50%, rgba(170, 170, 170, 0.15) 75%, transparent 75%, transparent), linear-gradient(to bottom, #fafafa, #e9e9e9);
   -webkit-background-size: 40px 40px;
   -moz-background-size: 40px 40px;
   -o-background-size: 40px 40px;

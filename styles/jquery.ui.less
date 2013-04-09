@@ -12,7 +12,6 @@
 .ui-widget select,
 .ui-widget textarea,
 .ui-widget button {
-  //font-family: Verdana,Arial,sans-serif;
   font-size: 1em;
 }
 .ui-widget-content {
@@ -38,7 +37,7 @@
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-  border: 1px solid #d3d3d3;
+  border: 1px solid @jq-border;
   #gradient .vertical();
   font-weight: normal;
   color: #555555;
@@ -392,18 +391,19 @@
 /* Custom
 ----------------------------------*/
 
-// Button
-.ui-button {
+// Estilos compartilhados Button + Dialog titlebar close (jQuery UI < 1.10)
+.ui-button, .ui-dialog .ui-dialog-titlebar-close {
   display: inline-block;
-  min-height: @input-height;
+  border-color: fade(@input-border, 35%);
+  border-bottom-color: lighten(@input-border, 10%);
 
-  // Explicação do cálculo:
-  // (Altura mínima do input - tamanho da fonte) / 2, pra deixar metade pra cima, metade pra baixo
-  // E ainda subtrai 2px da borda do botão.
-  padding: (((@input-height - @base-font-size) / 2) - 2px) 5px;
+  // Nas versões mais antigas do Firefox, quando é utilizado um buttonset (elementos label.ui-button),
+  // o min-height aumentava MUITO o tamanho final do botão.
+  //min-height: @input-height;
+
   vertical-align: middle;
   .box-sizing(border-box);
-  .transition(all .15s linear);
+  .transition(background .15s linear);
 
   a&:hover,
   a&:active {
@@ -411,31 +411,39 @@
     color: @jq-hover-text-color;
   }
 
-  &.ui-state-active, &.ui-state-focus {
-    border-color: @input-focus-border;
+  &.ui-state-active,
+  &.ui-state-hover {
+    background: #eee;
+  }
+}
+
+// Button
+.ui-button {
+  // Explicação do cálculo:
+  // (Altura mínima do input - tamanho da linha) - 2px (da borda do botão),
+  // E divide por 2, pra deixar metade pra cima, metade pra baixo.
+  padding: (((@input-height - @base-line-height) - 2px) / 2) 12px;
+
+  .ui-button-text {
+    line-height: @base-line-height;
   }
 
-  // Arredonda os cantos pro mesmo tamanho do .syo-button.
-  // É necessário setar para cada classe por causa dos buttonsets.
-  &.ui-corner-all,
-  &.ui-corner-top,
-  &.ui-corner-left,
-  &.ui-corner-tl { .border-top-left-radius(@input-border-radius); }
+  &.ui-state-focus {
+    outline: dotted thin #333;
+    outline-offset: 2px;
+  }
 
-  &.ui-corner-all,
-  &.ui-corner-top,
-  &.ui-corner-right,
-  &.ui-corner-tr { .border-top-right-radius(@input-border-radius); }
+  &.ui-state-active {
+    z-index: 3;
+    outline: 0;
+    border-color: fade(@jq-border, 80%);
+    border-bottom-color: lighten(@jq-border, 5%);
+    .box-shadow(0 2px 4px fade(#000, 15%) inset);
+  }
+}
 
-  &.ui-corner-all,
-  &.ui-corner-bottom,
-  &.ui-corner-right,
-  &.ui-corner-br { .border-bottom-right-radius(@input-border-radius); }
-
-  &.ui-corner-all,
-  &.ui-corner-bottom,
-  &.ui-corner-left,
-  &.ui-corner-bl { .border-bottom-left-radius(@input-border-radius); }
+input.ui-button {
+  height: @input-height;
 }
 
 .ui-button-text-only .ui-button-text {
@@ -444,7 +452,30 @@
 
 .ui-button-text-icon-primary .ui-button-text,
 .ui-button-text-icons .ui-button-text {
-  padding: 0 0 0 1.8em;
+  padding: 0 0 0 1.4em;
+}
+
+// Dialog titlebar closethick (jQuery UI < 1.10)
+.ui-dialog .ui-dialog-titlebar-close {
+  border: 1px solid @jq-border;
+
+  // No caso do closethick do Dialog, todos lados sempre vão ter bordas arredondadas.
+  .border-radius(@input-border-radius);
+
+  // O icone normal tem uma tonalidade mais forte, que não fica legal.
+  .ui-icon {
+    background-image: url(@jq-icons2);
+  }
+
+  // Outline neste closethick fica horrível.
+  &.ui-state-focus {
+    outline: 0;
+  }
+
+  // Sobrescreve a especificidade acima
+  &.ui-state-hover .ui-icon {
+    background-image: url(@jq-icons-hover);
+  }
 }
 
 // Buttonset
@@ -453,6 +484,11 @@
 
   .ui-helper-hidden-accessible {
     position: absolute !important; // Sobrescreve o estilo principal dos checkboxes/radio, que é relative
+  }
+
+  .ui-button.ui-state-focus {
+    // Coloca o outline sobre os vizinhos
+    z-index: 5;
   }
 }
 
@@ -472,58 +508,18 @@
     margin: 0;
     border: 0;
   }
+
+  a.ui-spinner-button {
+    padding: 0;
+    border-bottom: 1px solid @jq-border;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
 }
 
 // Progressbar
-
-// Animações
-// Webkit
-@-webkit-keyframes progress-bar-stripes {
-  from  { background-position: 40px 0; }
-  to    { background-position: 0 0; }
-}
-
-// Firefox
-@-moz-keyframes progress-bar-stripes {
-  from  { background-position: 40px 0; }
-  to    { background-position: 0 0; }
-}
-
-// IE9
-@-ms-keyframes progress-bar-stripes {
-  from  { background-position: 40px 0; }
-  to    { background-position: 0 0; }
-}
-
-// Opera
-@-o-keyframes progress-bar-stripes {
-  from  { background-position: 0 0; }
-  to    { background-position: 40px 0; }
-}
-
-// Spec
-@keyframes progress-bar-stripes {
-  from  { background-position: 40px 0; }
-  to    { background-position: 0 0; }
-}
-
 .ui-progressbar .ui-progressbar-value {
-  // @TODO usar na classe .ui-progressbar-overlay
-  @stripeColor: fade(@gray-light, 10%);
-
-  background-color: #d0d0d0;
-
-  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, @stripeColor), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, @stripeColor), color-stop(.75, @stripeColor), color-stop(.75, transparent), to(transparent)), -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#eee));
-  background-image: -webkit-linear-gradient(45deg, @stripeColor 25%, transparent 25%, transparent 50%, @stripeColor 50%, @stripeColor 75%, transparent 75%, transparent), -webkit-linear-gradient(top, #fff, #eee);
-  background-image: -moz-linear-gradient(45deg, @stripeColor 25%, transparent 25%, transparent 50%, @stripeColor 50%, @stripeColor 75%, transparent 75%, transparent), -moz-linear-gradient(top, #fff, #eee);
-  background-image: -o-linear-gradient(45deg, @stripeColor 25%, transparent 25%, transparent 50%, @stripeColor 50%, @stripeColor 75%, transparent 75%, transparent), -o-linear-gradient(top, #fff, #eee);
-  background-image: linear-gradient(45deg, @stripeColor 25%, transparent 25%, transparent 50%, @stripeColor 50%, @stripeColor 75%, transparent 75%, transparent), linear-gradient(to bottom, #fff, #eee);
-
-  .background-size(40px 40px);
-
-  -webkit-animation: progress-bar-stripes 1.5s linear infinite;
-     -moz-animation: progress-bar-stripes 1.5s linear infinite;
-      -ms-animation: progress-bar-stripes 1.5s linear infinite;
-       -o-animation: progress-bar-stripes 1.5s linear infinite;
-          animation: progress-bar-stripes 1.5s linear infinite;
+  .progressbar();
 }
