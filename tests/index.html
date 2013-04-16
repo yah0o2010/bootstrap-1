@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Unit Test</title>
+        <meta charset="UTF-8" />
+
+        <link rel="stylesheet" href="../external/qunit/qunit.css" type="text/css" />
+
+        <script src="../external/qunit/qunit.js"></script>
+        <script src="../external/jquery.js"></script>
+        <script src="../external/jquery.ui.js"></script>
+    </head>
+    <body>
+        <div id="qunit"></div>
+        <div id="qunit-fixture"></div>
+
+        <link rel="stylesheet" href="../external/qunit/qunit.composite.css" />
+        <script src="../external/qunit/qunit.composite.js"></script>
+        <script>
+            QUnit.testSuites( "Syonet Bootstrap", [{
+                path: "button.html",
+                name: "Button"
+            }, {
+                path: "pagination.html",
+                name: "Pagination"
+            }, {
+                path: "popover.html",
+                name: "Popover"
+            }]);
+        </script>    </body>
+</html>

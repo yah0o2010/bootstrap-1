@@ -10,8 +10,12 @@ module.exports = function( grunt ) {
 				tasks: [ "css" ]
 			},
 			js: {
-				files: [ "scripts/*.js", "tests/**/*.js" ],
+				files: [ "scripts/*.js" ],
 				tasks: [ "js" ]
+			},
+			jsTest: {
+				files: [ "tests/specs/**/*.js", "tests/templates/**/*.hbs" ],
+				tasks: [ "js-test" ]
 			},
 			docs: {
 				files: [ "docs/templates/**/*.hbs", "docs/main.less" ],
@@ -74,7 +78,8 @@ module.exports = function( grunt ) {
 			tests: {
 				layout: "tests/templates/layout.hbs",
 				src: [
-					"tests/templates/pages/*.hbs"
+					"tests/templates/pages/*.hbs",
+					"tests/templates/index.hbs"
 				],
 				dest: "tests"
 			}
@@ -108,7 +113,7 @@ module.exports = function( grunt ) {
 			}
 		},
 		qunit: {
-			files: [ "tests/*.html" ]
+			files: [ "tests/index.html" ]
 		},
 		jshint: {
 			options: {
@@ -117,8 +122,8 @@ module.exports = function( grunt ) {
 			js: [ "scripts/*.js" ],
 			tests: {
 				options: {
-					// Libera um pouco de caracteres por linha nos testes, pois a descrição das asserções fica inline.
-					maxlen: 120
+					// Nos testes, libera a opção maxlen, pois a descrição das asserções fica inline.
+					maxlen: 0
 				},
 				files: {
 					src: [ "tests/**/*.js" ]
@@ -146,8 +151,10 @@ module.exports = function( grunt ) {
 	grunt.loadTasks("build");
 
 	// Registra as tasks alias
+
 	grunt.registerTask( "css",      [ "clean:css", "less:main", "copy:css", "linestrip" ] );
-	grunt.registerTask( "js",       [ "clean:js", "hogan:tests", "jshint:js", "qunit", "copy:js" ] );
+	grunt.registerTask( "js-test",  [ "hogan:tests", "jshint:tests", "qunit" ] );
+	grunt.registerTask( "js",       [ "clean:js", "jshint:js", "js-test", "copy:js" ] );
 	grunt.registerTask( "docs",     [ "clean:docs", "less:docs", "jshint:docs", "hogan:docs" ] );
 	grunt.registerTask( "default",  [ "clean:dist", "css", "js", "docs", "copy:dist" ] );
 };

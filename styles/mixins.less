@@ -54,35 +54,30 @@
 // border-radius
 .border-radius (@radius) {
   -webkit-border-radius: @radius;
-     -moz-border-radius: @radius;
           border-radius: @radius;
 }
 
 // border-radius top left
 .border-top-left-radius(@radius) {
   -webkit-border-top-left-radius: @radius;
-     -moz-border-top-left-radius: @radius;
           border-top-left-radius: @radius;
 }
 
 // border-radius top right
 .border-top-right-radius(@radius) {
   -webkit-border-top-right-radius: @radius;
-     -moz-border-top-right-radius: @radius;
           border-top-right-radius: @radius;
 }
 
 // border-radius bottom left
 .border-bottom-left-radius(@radius) {
   -webkit-border-bottom-left-radius: @radius;
-     -moz-border-bottom-left-radius: @radius;
           border-bottom-left-radius: @radius;
 }
 
 // border-radius bottom right
 .border-bottom-right-radius(@radius) {
   -webkit-border-bottom-right-radius: @radius;
-     -moz-border-bottom-right-radius: @radius;
           border-bottom-right-radius: @radius;
 }
 
@@ -121,7 +116,6 @@
 // box-shadow
 .box-shadow (@shadow) {
   -webkit-box-shadow: @shadow;
-     -moz-box-shadow: @shadow;
           box-shadow: @shadow;
 }
 
@@ -142,7 +136,7 @@
 
 // Gradient
 #gradient {
-  .vertical(@startColor: #fff, @endColor: #eee) {
+  .vertical(@startColor: @component-bg-light, @endColor: @component-bg) {
     background-color: mix(@startColor, @endColor, 60%);
     background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
@@ -232,6 +226,8 @@
   border: 1px solid @table-border-color;
   border-left: 0;
 
+  background-color: @table-bg;
+
   table-layout: fixed;
 
   td, th {
@@ -248,7 +244,7 @@
     font-weight: bold;
   }
 
-  // Prevent a double border
+  // Previne borda dupla
   caption + thead tr:first-child th,
   caption + tbody tr:first-child th,
   caption + tbody tr:first-child td,
@@ -257,7 +253,8 @@
   colgroup + tbody tr:first-child td,
   thead:first-child tr:first-child th,
   tbody:first-child tr:first-child th,
-  tbody:first-child tr:first-child td {
+  tbody:first-child tr:first-child td,
+  tfoot:first-child tr:first-child td {
     border-top: 0;
   }
 }

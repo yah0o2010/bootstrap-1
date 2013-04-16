@@ -55,7 +55,7 @@
   position: absolute;
   width: 100%;
 }
-section {
+article {
   padding-top: 40px;
 }
 .syo-docs-example {
@@ -64,10 +64,8 @@ section {
   border: 1px solid #aaaaaa;
   background: #fdfdfd;
   -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 .syo-docs-example:before {
@@ -85,19 +83,17 @@ section {
   background: #eeeeee;
   content: "Exemplo";
   -webkit-border-radius: 4px 0 4px 0;
-  -moz-border-radius: 4px 0 4px 0;
   border-radius: 4px 0 4px 0;
 }
 .syo-docs-example .syo-docs-example-inner {
+  position: relative;
   padding: 0 20px 20px;
 }
 .syo-docs-example pre.prettyprint {
   margin: 0;
   -webkit-border-bottom-left-radius: 4px;
-  -moz-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px;
   -webkit-border-bottom-right-radius: 4px;
-  -moz-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 .grid-example .row {
@@ -108,7 +104,6 @@ section {
   font-size: .9;
   background: #eeeeee;
   -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
   border-radius: 4px;
 }
 .grid-example [class*="span"]:hover {
@@ -166,7 +161,6 @@ ul.responsive-test li {
   color: #aaaaaa;
   text-align: center;
   -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
   border-radius: 4px;
 }
 ul.responsive-test li > span {
@@ -176,7 +170,6 @@ ul.responsive-test li > span {
   width: 100%;
   padding: 10px 0;
   -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
   border-radius: 4px;
 }
 @media (max-width: 979px) and (orientation: portrait) {

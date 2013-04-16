@@ -12,11 +12,11 @@
 		main            = $("[role='main']");
 		mainPos         = main.offset().top;
 		sidebar         = $("#sidebar");
-		firstSection    = main.find("section:first");
+		firstSection    = main.find("article:first");
 
 		// Instancia os plugins jQuery UI
 		$("[data-widget]").each(function() {
-			var data = $( this).data();
+			var data = $( this ).data();
 			$( this )[ data.widget ]( data );
 		});
 
@@ -47,6 +47,16 @@
 			}
 		}).click(function() {
 			$(".dialog").dialog("open");
+		});
+
+		$(".pagination-component").syoPagination( "disable", 3 );
+
+		// Elementos que abrem o popover
+		$(".popover-trigger").click(function() {
+			$(".popover-component").syoPopover( "option", {
+				element:    this,
+				position:   $( this ).data("position")
+			}).syoPopover("open");
 		});
 	}
 

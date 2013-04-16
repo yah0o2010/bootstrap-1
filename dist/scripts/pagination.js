@@ -1,5 +1,5 @@
 /*!
- * Syonet Bootstrap v0.0.0 - 2013-04-09
+ * Syonet Bootstrap v0.0.0 - 2013-04-16
  * O conjunto de ferramentas front-end da Syonet
  * http://syonet.github.com/bootstrap/
  *
@@ -45,13 +45,16 @@
 
 		_setupEvents: function() {
 			var widget = this;
-			this.list.on( "click", "> li." + this.disabledClass + " > a", function( e ) {
-				e.stopPropagation();
-			});
 
-			this.list.on( "click", "> li > a", function( e ) {
+			this.list.on( "click", "> li", function( e ) {
 				e.stopPropagation();
-				widget._activate( widget.items.index( this.parentNode ) );
+				e.preventDefault();
+
+				if ( $( this ).hasClass( widget.disabledClass ) ) {
+					return;
+				}
+
+				widget._activate( widget.items.index( this ) );
 			});
 		},
 		_setOption: function( key, value ) {

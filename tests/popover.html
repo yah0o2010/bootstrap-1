@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Unit Test</title>
+        <meta charset="UTF-8" />
+
+        <link rel="stylesheet" href="../external/qunit/qunit.css" type="text/css" />
+
+        <script src="../external/qunit/qunit.js"></script>
+        <script src="../external/jquery.js"></script>
+        <script src="../external/jquery.ui.js"></script>
+    </head>
+    <body>
+        <div id="qunit"></div>
+        <div id="qunit-fixture"></div>
+
+        <div id="popover">Lorem ipsum</div>
+        
+        <script>
+        QUnit.done(function() {
+            $("#popover").remove();
+        });
+        </script>
+        <script src="../scripts/popover.js"></script>
+        <script src="specs/popover/general.js"></script>
+        <script src="specs/popover/options.js"></script>
+        <script src="specs/popover/methods.js"></script>    </body>
+</html>
