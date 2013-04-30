@@ -42,6 +42,10 @@
   font-weight: normal;
   color: #555555;
   .transition(~"background 0.15s linear, border 0.15s linear");
+  &:active {
+    // outline deve servir apenas para foco na navegação com o teclado no FF
+    outline: none;
+  }
 }
 .ui-state-default a,
 .ui-state-default a:link,
@@ -58,13 +62,14 @@
   border: 1px solid #999999;
   #gradient .vertical();
   font-weight: normal;
-  color: @jq-hover-text-color;
+  color: @input-hover-text;
+  border-color: @component-border-hover;
 }
 .ui-state-hover a,
 .ui-state-hover a:hover,
 .ui-state-hover a:link,
 .ui-state-hover a:visited {
-  color: @jq-hover-text-color;
+  color: @input-hover-text;
   text-decoration: none;
 }
 .ui-state-active,
@@ -73,12 +78,12 @@
   border: 1px solid @jq-border;
   background: #ffffff;
   font-weight: normal;
-  color: @jq-hover-text-color;
+  color: @input-hover-text;
 }
 .ui-state-active a,
 .ui-state-active a:link,
 .ui-state-active a:visited {
-  color: @jq-hover-text-color;
+  color: @input-hover-text;
   text-decoration: none;
 }
 
@@ -397,23 +402,29 @@
   border-color: fade(@input-border, 35%);
   border-bottom-color: lighten(@input-border, 10%);
 
-  // Nas versões mais antigas do Firefox, quando é utilizado um buttonset (elementos label.ui-button),
-  // o min-height aumentava MUITO o tamanho final do botão.
-  //min-height: @input-height;
-
+  // Alinha com os outros botões do bootstrap
   vertical-align: middle;
-  .box-sizing(border-box);
-  .transition(background .15s linear);
-
-  a&:hover,
-  a&:active {
-    // Sobrescreve a cor do link do scaffolding quando for a.ui-button
-    color: @jq-hover-text-color;
-  }
+  .transition( @button-bg-transition );
 
   &.ui-state-active,
   &.ui-state-hover {
-    background: #eee;
+    background: @component-bg;
+    border-color: @input-hover-border;
+  }
+}
+
+.ui-button {
+  // Nas versões mais antigas do Firefox, quando é utilizado um buttonset (elementos label.ui-button),
+  // o min-height aumentava MUITO o tamanho final do botão.
+  height: @input-height;
+}
+
+// https://github.com/vtst/ow/issues/138
+a.ui-button, a.ui-dialog .ui-dialog-titlebar-close {
+  &:hover,
+  &:active {
+    // Sobrescreve a cor do link do scaffolding quando for a.ui-button
+    color: @input-hover-text;
   }
 }
 
@@ -430,12 +441,10 @@
 
   &.ui-state-focus {
     outline: dotted thin #333;
-    outline-offset: 2px;
   }
 
-  &.ui-state-active {
+  &:active, &.ui-state-active {
     z-index: 3;
-    outline: 0;
     border-color: fade(@jq-border, 80%);
     border-bottom-color: lighten(@jq-border, 5%);
     .box-shadow(0 2px 4px fade(#000, 15%) inset);
@@ -481,6 +490,15 @@ input.ui-button {
 // Buttonset
 .ui-buttonset {
   vertical-align: top;
+  .clearfix();
+
+  // Em algumas situações o uso de margin -.3em para controle do espaçamento do inline-block
+  // causa problemas na exibição da borda, ou seja, essa técnica não é garantida e depende muito do
+  // tamanho da fonte do container. Usar float é mais garantido.
+  .ui-button {
+    margin: 0;
+    float: left;
+  }
 
   .ui-helper-hidden-accessible {
     position: absolute !important; // Sobrescreve o estilo principal dos checkboxes/radio, que é relative
@@ -496,11 +514,15 @@ input.ui-button {
 .ui-spinner {
   height: @input-height;
   vertical-align: top;
-  .box-sizing(border-box);
   .border-radius(@input-border-radius);
 
-  .ui-button, .ui-spinner-input {
-    min-height: auto;
+  .ui-button {
+    height: 13px;
+  }
+
+  // Remove o "clear" do IE 10 que aparece no spinner
+  input::-ms-clear {
+      display: none !important;
   }
 
   .ui-spinner-input {
@@ -522,4 +544,63 @@ input.ui-button {
 // Progressbar
 .ui-progressbar .ui-progressbar-value {
   .progressbar();
+  
+  // Reseta os estilos do jquery UI porque usamos "box-sizing: border-box" agora.
+  margin: 0;
+  border-width: 0 1px 0 0;
+}
+
+// Accordion
+.ui-accordion .ui-accordion-content {
+  // jqueryUI tem sérios problemas com animações e "box-sizing: border-box"
+  // Isso corrige um destes problemas retornando a configuração padrão para que a animação do
+  // accordion não "pule" por causa do padding.
+  .box-sizing( content-box );
+}
+
+// Datepicker
+.ui-datepicker {
+  .ui-datepicker-prev,
+  .ui-datepicker-next {
+    top: 2px;
+  }
+  .ui-datepicker-prev {
+    left: 2px;
+  }
+  .ui-datepicker-next {
+    right: 2px;
+  }
+}
+
+// Menu
+.ui-menu .ui-menu-item {
+  a {
+    padding: 5px 0.4em;
+    border: none;
+    border-bottom: 1px solid darken(@component-bg, 5%);
+    line-height: inherit;
+    cursor: pointer;
+    .border-radius(0);
+
+    &.ui-state-focus {
+      border: none;
+      border-bottom: 1px solid darken(@component-bg, 5%);
+      background: @component-bg-hover;
+    }
+
+    &.ui-state-focus,
+    &.ui-state-active {
+      margin: 0;
+    }
+
+    // Os icones ficavam desalinhados com o texto
+    [class^="icon-"]:before,
+    [class*=" icon-"]:before {
+      vertical-align: baseline;
+    }
+  }
+
+  &:last-child a {
+    border-bottom: 0;
+  }
 }

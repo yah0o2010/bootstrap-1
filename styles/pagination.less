@@ -2,35 +2,33 @@
 // -------------------------
 
 .syo-pagination {
+
   > ul {
-    display: inline-block;
     list-style: none;
-    .clearfix();
-    .box-shadow(0 1px 2px fade(@gray-light, 30%));
-    .border-radius(@base-border-radius);
 
     li {
-      display: inline;
+      .box-shadow(0 1px 2px fade(@gray-light, 30%));
+      display: table-cell;
+      .clearfix();
 
       a {
-        position: relative;
         float: left;
-        height: @base-line-height;
         margin-right: -1px;
         padding: 4px 12px;
         border: 1px solid @pagination-border;
-        line-height: @base-line-height;
         background-color: @pagination-item-background;
-        .transition(background .15s linear);
 
         &:hover, &:active, &:focus {
+          //Garante que a borda vai ficar por cima do vizinho quando em destaque
+          z-index: 1;
+          
           text-decoration: none;
           background: @pagination-hover-background;
-        }
-
-        &:active, &:focus {
-          // Mostra a borda com mais prioridade que os itens sem :focus/:active
-          z-index: @pagination-active-zindex - 1;
+          border-color: @component-border-hover;
+          
+          // Permite mudança do z-index
+          position: relative;
+          
         }
 
         &:focus {
@@ -49,9 +47,6 @@
 
       // Item ativo na paginação
       &.syo-active > a {
-        // Sempre mostrará todas as bordas
-        z-index: @pagination-active-zindex;
-
         color: darken(@pagination-disabled-text, 20%);
         background: @pagination-hover-background;
         .box-shadow(0 2px 4px fade(#000, 15%) inset);
@@ -78,6 +73,7 @@
   }
 }
 
+// Paginação inline - evita que o componente ocupe a linha toda.
 .syo-pagination-inline {
   > ul {
     display: inline-block;
@@ -97,26 +93,16 @@
     vertical-align: middle;
 
     // Retira os paddings laterais
-    &:first-child {
-      padding-left: 0;
-    }
-
-    &:last-child {
-      padding-right: 0;
-    }
+    &:first-child { padding-left: 0; }
+    &:last-child  { padding-right: 0; }
 
     // Sobrepõe a paginação sobre as bordas da célula
     > ul {
       margin-top: -1px;
       margin-bottom: -1px;
 
-      &:first-child {
-        margin-left: -1px;
-      }
-
-      &:last-child {
-        margin-right: -1px;
-      }
+      &:first-child { margin-left: -1px; }
+      &:last-child  { margin-right: -1px; }
 
       li a {
         .border-radius(0);

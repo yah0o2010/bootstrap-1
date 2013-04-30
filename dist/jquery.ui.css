@@ -1,5 +1,5 @@
 /*!
- * Syonet Bootstrap v0.0.0 - 2013-04-16
+ * Syonet Bootstrap v0.0.0 - 2013-04-30
  * O conjunto de ferramentas front-end da Syonet
  * http://syonet.github.com/bootstrap/
  *
@@ -535,6 +535,7 @@ button.ui-button::-moz-focus-inner {
   height: 100%;
 }
 .ui-progressbar .ui-progressbar-overlay {
+  background: url("images/animated-overlay.gif");
   height: 100%;
   filter: alpha(opacity=25);
   opacity: 0.25;
@@ -860,14 +861,14 @@ body .ui-tooltip {
 }
 .ui-widget-header {
   border: 1px solid #aaaaaa;
-  background-color: #f8f8f8;
-  background-image: -moz-linear-gradient(top, #ffffff, #eeeeee);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#eeeeee));
-  background-image: -webkit-linear-gradient(top, #ffffff, #eeeeee);
-  background-image: -o-linear-gradient(top, #ffffff, #eeeeee);
-  background-image: linear-gradient(to bottom, #ffffff, #eeeeee);
+  background-color: #f3f3f3;
+  background-image: -moz-linear-gradient(top, #ffffff, #e2e2e2);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e2e2e2));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e2e2e2);
+  background-image: -o-linear-gradient(top, #ffffff, #e2e2e2);
+  background-image: linear-gradient(to bottom, #ffffff, #e2e2e2);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe2e2e2', GradientType=0);
   color: #222222;
   font-weight: bold;
 }
@@ -880,20 +881,25 @@ body .ui-tooltip {
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
   border: 1px solid #aaaaaa;
-  background-color: #f8f8f8;
-  background-image: -moz-linear-gradient(top, #ffffff, #eeeeee);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#eeeeee));
-  background-image: -webkit-linear-gradient(top, #ffffff, #eeeeee);
-  background-image: -o-linear-gradient(top, #ffffff, #eeeeee);
-  background-image: linear-gradient(to bottom, #ffffff, #eeeeee);
+  background-color: #f3f3f3;
+  background-image: -moz-linear-gradient(top, #ffffff, #e2e2e2);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e2e2e2));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e2e2e2);
+  background-image: -o-linear-gradient(top, #ffffff, #e2e2e2);
+  background-image: linear-gradient(to bottom, #ffffff, #e2e2e2);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe2e2e2', GradientType=0);
   font-weight: normal;
   color: #555555;
   -webkit-transition: background 0.15s linear, border 0.15s linear;
   -moz-transition: background 0.15s linear, border 0.15s linear;
   -o-transition: background 0.15s linear, border 0.15s linear;
   transition: background 0.15s linear, border 0.15s linear;
+}
+.ui-state-default:active,
+.ui-widget-content .ui-state-default:active,
+.ui-widget-header .ui-state-default:active {
+  outline: none;
 }
 .ui-state-default a,
 .ui-state-default a:link,
@@ -908,16 +914,17 @@ body .ui-tooltip {
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
   border: 1px solid #999999;
-  background-color: #f8f8f8;
-  background-image: -moz-linear-gradient(top, #ffffff, #eeeeee);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#eeeeee));
-  background-image: -webkit-linear-gradient(top, #ffffff, #eeeeee);
-  background-image: -o-linear-gradient(top, #ffffff, #eeeeee);
-  background-image: linear-gradient(to bottom, #ffffff, #eeeeee);
+  background-color: #f3f3f3;
+  background-image: -moz-linear-gradient(top, #ffffff, #e2e2e2);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e2e2e2));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e2e2e2);
+  background-image: -o-linear-gradient(top, #ffffff, #e2e2e2);
+  background-image: linear-gradient(to bottom, #ffffff, #e2e2e2);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe2e2e2', GradientType=0);
   font-weight: normal;
   color: #1a1a1a;
+  border-color: #919191;
 }
 .ui-state-hover a,
 .ui-state-hover a:hover,
@@ -1604,26 +1611,26 @@ body .ui-tooltip {
   border-color: rgba(170, 170, 170, 0.35);
   border-bottom-color: #c3c3c3;
   vertical-align: middle;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
   -webkit-transition: background 0.15s linear;
   -moz-transition: background 0.15s linear;
   -o-transition: background 0.15s linear;
   transition: background 0.15s linear;
+}
+.ui-button.ui-state-active,
+.ui-dialog .ui-dialog-titlebar-close.ui-state-active,
+.ui-button.ui-state-hover,
+.ui-dialog .ui-dialog-titlebar-close.ui-state-hover {
+  background: #e2e2e2;
+  border-color: #919191;
+}
+.ui-button {
+  height: 28px;
 }
 a.ui-button:hover,
 a.ui-dialog .ui-dialog-titlebar-close:hover,
 a.ui-button:active,
 a.ui-dialog .ui-dialog-titlebar-close:active {
   color: #1a1a1a;
-}
-.ui-button.ui-state-active,
-.ui-dialog .ui-dialog-titlebar-close.ui-state-active,
-.ui-button.ui-state-hover,
-.ui-dialog .ui-dialog-titlebar-close.ui-state-hover {
-  background: #eee;
 }
 .ui-button {
   padding: 3px 12px;
@@ -1633,11 +1640,10 @@ a.ui-dialog .ui-dialog-titlebar-close:active {
 }
 .ui-button.ui-state-focus {
   outline: dotted thin #333;
-  outline-offset: 2px;
 }
+.ui-button:active,
 .ui-button.ui-state-active {
   z-index: 3;
-  outline: 0;
   border-color: rgba(170, 170, 170, 0.8);
   border-bottom-color: #b7b7b7;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset;
@@ -1670,6 +1676,19 @@ input.ui-button {
 .ui-buttonset {
   vertical-align: top;
 }
+.ui-buttonset:before,
+.ui-buttonset:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.ui-buttonset:after {
+  clear: both;
+}
+.ui-buttonset .ui-button {
+  margin: 0;
+  float: left;
+}
 .ui-buttonset .ui-helper-hidden-accessible {
   position: absolute !important;
 }
@@ -1679,16 +1698,14 @@ input.ui-button {
 .ui-spinner {
   height: 28px;
   vertical-align: top;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-.ui-spinner .ui-button,
-.ui-spinner .ui-spinner-input {
-  min-height: auto;
+.ui-spinner .ui-button {
+  height: 13px;
+}
+.ui-spinner input::-ms-clear {
+  display: none !important;
 }
 .ui-spinner .ui-spinner-input {
   height: 26px;
@@ -1718,4 +1735,47 @@ input.ui-button {
   -ms-animation: progress-bar-stripes 1.5s linear infinite;
   -o-animation: progress-bar-stripes 1.5s linear infinite;
   animation: progress-bar-stripes 1.5s linear infinite;
+  margin: 0;
+  border-width: 0 1px 0 0;
+}
+.ui-accordion .ui-accordion-content {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+  top: 2px;
+}
+.ui-datepicker .ui-datepicker-prev {
+  left: 2px;
+}
+.ui-datepicker .ui-datepicker-next {
+  right: 2px;
+}
+.ui-menu .ui-menu-item a {
+  padding: 5px 0.4em;
+  border: none;
+  border-bottom: 1px solid #d5d5d5;
+  line-height: inherit;
+  cursor: pointer;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+.ui-menu .ui-menu-item a.ui-state-focus {
+  border: none;
+  border-bottom: 1px solid #d5d5d5;
+  background: #eeeeee;
+}
+.ui-menu .ui-menu-item a.ui-state-focus,
+.ui-menu .ui-menu-item a.ui-state-active {
+  margin: 0;
+}
+.ui-menu .ui-menu-item a [class^="icon-"]:before,
+.ui-menu .ui-menu-item a [class*=" icon-"]:before {
+  vertical-align: baseline;
+}
+.ui-menu .ui-menu-item:last-child a {
+  border-bottom: 0;
 }

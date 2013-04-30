@@ -41,8 +41,11 @@
 .header {
   padding-top: 40px;
   padding-bottom: 40px;
-  background: #eeeeee;
+  background: url("images/noise.png") #eeeeee;
   text-align: center;
+  border-bottom: 1px solid #eeeeee;
+  -webkit-box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 0.25);
 }
 .header h1 {
   font-size: 56px;
@@ -57,6 +60,12 @@
 }
 article {
   padding-top: 40px;
+}
+.footer {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-top: 1px solid #d0d0d0;
+  background-color: #f6f6f6;
 }
 .syo-docs-example {
   margin: 20px 0;
@@ -182,5 +191,8 @@ ul.responsive-test li > span {
   .responsive-test .visible:before,
   .responsive-table .visible:before {
     content: "";
+  }
+  .footer section {
+    text-align: center;
   }
 }

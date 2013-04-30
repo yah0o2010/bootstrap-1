@@ -26,8 +26,7 @@ textarea {
   // Tem que usar line-height: normal por causa de um bug do Firefox.
   #font .shorthand(@input-text-color, normal);
   .border-radius(@input-border-radius);
-  .box-sizing(border-box);
-  .transition(all .15s linear);
+  .transition( ~"box-shadow .15s linear, color .15s linear" );
   text-shadow: 0 1px 0 #fff;
 
   &:hover {
@@ -38,6 +37,8 @@ textarea {
   }
 
   &:focus {
+    // Remove o outline azul do safaris
+    outline: none;
     border-color: @input-focus-border;
     background-color: @input-background;
     .box-shadow(none);
@@ -55,24 +56,28 @@ textarea {
   &[disabled],
   &.syo-disabled {
     border-color: @input-disabled-border !important;
-    color: @input-disabled-text !important;
     background: @input-disabled-background !important;
+    color: @input-disabled-text !important;
     .box-shadow(~"none !important");
     cursor: default;
   }
 }
 
-textarea {
-  // Reseta o height do textarea, afinal eles tem rows!
+// Reseta o height de select multiplo/textarea
+select[size],
+select[multiple] {
   height: auto;
 }
 
 select {
-  line-height: @input-height;
+  // Safari controla o height baseado no line-height
+  // TODO: Descobrir pq para o safari precisamos reduzir 6px do line-height
+  line-height: @input-height - 6px;
   // Padding necessário para alinhar verticalmente o texto do option selecionado.
   padding: ((@input-height - @base-line-height) / 2) 2px;
 
   option {
+    // Evita que fique o text-shadow ao botar o mouse sobre um item no select
     text-shadow: none;
   }
 }
@@ -86,11 +91,10 @@ input[type="radio"] {
 // Labels, fieldsets, legends
 // -------------------------
 fieldset {
-  margin: 2px;
+  margin: 2px 2px @base-line-height;
   padding: .5em;
   border: 1px solid @gray-light;
   .border-radius(@border-radius-large);
-  .box-sizing(border-box);
 }
 
 legend {
@@ -115,7 +119,9 @@ label {
   + textarea,
   > button,
   + button {
-    margin-left: 3px;
+    &:not(.input-block-level) {
+      margin-left: 3px;
+    }
   }
 
   // Alinha o checkbox/radio com a primeira linha de texto do label pai
@@ -139,7 +145,10 @@ input, textarea, select, button {
   #font .shorthand();
 
   &.syo-field-inline {
-    display: inline-block;
+    // Muda de inline para inline-block para corrigir um bug no IE10 onde o textarea não fica
+    // alinhado com os outros inputs. O tamanho do field fica sendo controlado pelo input dentro
+    // dele.
+    display: inline;
   }
 
   > .syo-field-controls {
@@ -155,13 +164,15 @@ input, textarea, select, button {
   > textarea,
   > select,
   > button {
-    vertical-align: top;
+    vertical-align: middle;
   }
 
   > input[type="radio"],
   > input[type="checkbox"] {
     position: relative;
-    top: 0.5em;
+    top: 0.6em;
+    height: auto; // Reseta o height
+    vertical-align: top;
   }
 
   // Bloco de ajuda de um syo-field

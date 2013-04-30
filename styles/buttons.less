@@ -1,23 +1,29 @@
+// Botões
+// -------------------------
+
 .syo-button {
+  // FF4 Precisa do height definido
+  height: @input-height;
   display: inline-block;
   padding: (((@input-height - @base-line-height) - 2px) / 2) 12px;
   border: 1px solid fade(@input-border, 35%);
   border-bottom-color: lighten(@input-border, 10%);
+  // Anchor tags não possuem o alinhamento centralizado por default
+  text-align: center;
+  vertical-align: middle;
   #font .shorthand(@input-text-color);
   #gradient .vertical();
   .border-radius(@base-border-radius);
   .box-shadow(0 1px 0 fade(#fff, 20%) inset);
 
   &:hover {
-    border-color: fade(@input-border, 50%);
-    border-bottom-color: lighten(@input-border, 5%);
-    background: #eee;
-    .transition(background 0.15s linear);
+    border-color: @input-hover-border;
+    background: @component-bg;
+    .transition( @button-bg-transition );
   }
 
   &:focus {
     outline: dotted thin #333;
-    outline-offset: 2px;
   }
 
   &.syo-active,
@@ -28,9 +34,9 @@
     outline: 0;
   }
 
-  // Desabilita efeitos de links
   &:hover, &:active {
-    color: @input-text-color;
+    color: @input-hover-text;
+    // Desabilita efeitos de links
     text-decoration: none;
   }
 }
@@ -43,31 +49,29 @@ input.syo-button {
 // Buttonset
 // ---------
 .syo-buttonset {
-  display: inline-block;
-  font-size: 0;
-  white-space: nowrap;
+  .clearfix();
 
   > .syo-button {
-    position: relative;
+    float: left;
     .border-radius(0);
 
     + .syo-button {
+      // Evita borda dupla
       margin-left: -1px;
     }
 
     &.syo-active,
     &:hover,
     &:focus {
-      z-index: 3;
+      // Para o z-index ser considerado temos que mudar a posição para qualquer outra além de static.
+      position: relative;
+      // Aumentando o z-index faz com que a borda do item ativo/hover fique sobre a dos seus vizinhos
+      z-index: 1;
     }
 
-    &:first-child {
-      .border-radius-left(@base-border-radius);
-    }
-
-    &:last-child {
-      .border-radius-right(@base-border-radius);
-    }
+    // Corrige border-radius no primeiro e no último botões do buttonset
+    &:first-child { .border-radius-left(@base-border-radius); }
+    &:last-child  { .border-radius-right(@base-border-radius); }
   }
 }
 
@@ -80,7 +84,8 @@ input.syo-button {
   border-color: @input-success-color;
 
   &:hover {
-    background-color: @input-success-color;
+    background: @input-success-color;
+    border-color: @input-success-hover-border;
   }
 }
 
@@ -90,10 +95,13 @@ input.syo-button {
   border-color: @input-error-color;
 
   &:hover {
-    background-color: @input-error-color;
+    background: @input-error-color;
+    border-color: @input-error-hover-border;
   }
 }
 
+// Cor do texto do botão.
+// Padrão é branco pra todos os botões não-default
 .syo-button.syo-success,
 .syo-button.syo-error {
   color: #fff;
@@ -102,8 +110,9 @@ input.syo-button {
 // Desabilitado
 .syo-button[disabled],
 .syo-button.syo-disabled {
-  border-color: lighten(@input-border, 5%);
-  background: #eee;
+  border-color: @input-disabled-border !important;
+  background: @input-disabled-background !important;
+  color: @input-disabled-text !important;
   cursor: default;
   .box-shadow(none);
   .opacity(0.8);
